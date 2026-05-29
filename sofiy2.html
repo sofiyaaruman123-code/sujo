@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sofiya Student Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#1b1b1b,#111);
+    overflow-x:hidden;
+    color:white;
+    position:relative;
+}
+
+/* =========================
+   GLOW BACKGROUND
+========================= */
+
+.glow1,.glow2,.glow3{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+.glow1{
+    width:350px;
+    height:350px;
+    background:#ffb6c1;
+    top:-100px;
+    left:-100px;
+    animation:moveGlow1 8s infinite alternate;
+}
+
+.glow2{
+    width:300px;
+    height:300px;
+    background:#cdb4db;
+    bottom:-100px;
+    right:-100px;
+    animation:moveGlow2 7s infinite alternate;
+}
+
+.glow3{
+    width:250px;
+    height:250px;
+    background:#a2d2ff;
+    top:40%;
+    left:45%;
+    animation:moveGlow3 6s infinite alternate;
+}
+
+@keyframes moveGlow1{
+    from{transform:translateY(0px);}
+    to{transform:translateY(60px);}
+}
+
+@keyframes moveGlow2{
+    from{transform:translateX(0px);}
+    to{transform:translateX(-70px);}
+}
+
+@keyframes moveGlow3{
+    from{transform:translateY(0px);}
+    to{transform:translateY(-50px);}
+}
+
+/* =========================
+   FLOATING ICONS
+========================= */
+
+.book,.computer,.game,.music{
+    position:absolute;
+    font-size:55px;
+    animation:float 5s infinite ease-in-out;
+}
+
+.book{
+    top:8%;
+    left:5%;
+}
+
+.computer{
+    top:18%;
+    right:6%;
+}
+
+.game{
+    bottom:15%;
+    left:8%;
+}
+
+.music{
+    top:60%;
+    right:8%;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+    50%{
+        transform:translateY(-20px) rotate(8deg);
+    }
+    100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:330px 1fr;
+    gap:25px;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.left{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(255,255,255,0.1);
+    animation:slideLeft 1s ease;
+}
+
+@keyframes slideLeft{
+    from{
+        transform:translateX(-100px);
+        opacity:0;
+    }
+    to{
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+
+/* PROFILE PHOTO */
+
+.profile-box{
+    position:relative;
+    width:190px;
+    margin:auto;
+}
+
+.profile{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid #ffb6c1;
+    box-shadow:0 0 25px #ffb6c1;
+    transition:0.5s;
+}
+
+.profile:hover{
+    transform:scale(1.07);
+}
+
+/* GAMER ICON */
+
+.gamer-badge{
+    position:absolute;
+    bottom:0;
+    right:0;
+    background:linear-gradient(45deg,#ffb6c1,#cdb4db);
+    padding:10px;
+    border-radius:50%;
+    font-size:22px;
+    color:black;
+    box-shadow:0 0 20px #ffb6c1;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+/* TEXT */
+
+.left h1{
+    margin-top:20px;
+    font-size:36px;
+    color:#ffd6e0;
+}
+
+.left p{
+    margin:8px 0;
+    color:#eee;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills{
+    margin-top:30px;
+    text-align:left;
+}
+
+.skill{
+    margin-bottom:20px;
+}
+
+.skill span{
+    display:block;
+    margin-bottom:8px;
+}
+
+.bar{
+    width:100%;
+    height:14px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#ffb6c1,#cdb4db,#a2d2ff);
+    animation:load 2s;
+}
+
+@keyframes load{
+    from{width:0;}
+}
+
+/* BUTTON */
+
+.btn{
+    margin-top:20px;
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ffb6c1,#cdb4db);
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.4s;
+    font-size:16px;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #ffb6c1;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.right{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* CARDS */
+
+.card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    padding:25px;
+    transition:0.4s;
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        transform:translateY(80px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(255,182,193,0.4);
+}
+
+.card h2{
+    color:#ffcad4;
+    margin-bottom:15px;
+    border-left:5px solid #ffb6c1;
+    padding-left:12px;
+}
+
+.card ul{
+    padding-left:20px;
+}
+
+.card li{
+    margin-bottom:12px;
+    line-height:1.8;
+}
+
+/* BADGES */
+
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:15px;
+}
+
+.badge{
+    padding:10px 18px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ffb6c1,#cdb4db);
+    color:black;
+    font-weight:bold;
+    transition:0.4s;
+}
+
+.badge:hover{
+    transform:scale(1.1);
+}
+
+/* =========================
+   GAME SECTION
+========================= */
+
+.game-box{
+    background:#0d0d0d;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    padding:25px;
+    text-align:center;
+}
+
+.coin{
+    font-size:60px;
+    animation:spin 3s linear infinite;
+}
+
+@keyframes spin{
+    from{transform:rotateY(0deg);}
+    to{transform:rotateY(360deg);}
+}
+
+.level-bar{
+    width:100%;
+    height:18px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.level-fill{
+    width:85%;
+    height:100%;
+    background:linear-gradient(90deg,#ffb6c1,#cdb4db,#a2d2ff);
+    animation:levelup 3s infinite;
+}
+
+@keyframes levelup{
+    0%{width:20%;}
+    100%{width:85%;}
+}
+
+/* PORTFOLIO LINK */
+
+.portfolio-link{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 25px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#a2d2ff,#ffb6c1);
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.4s;
+}
+
+.portfolio-link:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px #a2d2ff;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.container{
+    grid-template-columns:1fr;
+}
+
+.book,.computer,.game,.music{
+    font-size:40px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+<div class="glow3"></div>
+
+<!-- FLOATING ICONS -->
+
+<div class="book">📚</div>
+<div class="computer">💻</div>
+<div class="game">🎮</div>
+<div class="music">🎵</div>
+
+<!-- MAIN -->
+
+<div class="container">
+
+<!-- LEFT -->
+
+<div class="left">
+
+<div class="profile-box">
+
+<!-- YOUR PHOTO -->
+
+<img src="WhatsApp Image 2026-05-27 at 2.30.26 PM(1).jpeg" class="profile">
+
+<div class="gamer-badge">🎮</div>
+
+</div>
+
+<h1>SOFIYA.A</h1>
+
+<p>🎓 BCA Student</p>
+<p>💻 Software Developer</p>
+<p>🧠 Future Psychologist</p>
+
+<br>
+
+<p>📧 sofia@gmail.com</p>
+<p>📱 23456789</p>
+<p>🏫 Don Bosco College</p>
+
+<!-- SKILLS -->
+
+<div class="skills">
+
+<div class="skill">
+<span>HTML - 90 XP</span>
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+<span>CSS - 85 XP</span>
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+</div>
+
+<div class="skill">
+<span>C++ - 75 XP</span>
+<div class="bar">
+<div class="fill" style="width:75%"></div>
+</div>
+</div>
+
+</div>
+
+<button class="btn">LEVEL UP 🚀</button>
+
+<!-- PORTFOLIO LINK -->
+
+<a href="#portfolio" class="portfolio-link">
+🌐 Open Student Portfolio
+</a>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right" id="portfolio">
+
+<!-- ABOUT -->
+
+<div class="card">
+
+<h2>👩 ABOUT ME</h2>
+
+<ul>
+
+<li>Completed schooling at Kolping Matriculation Higher Secondary School, Pondicherry.</li>
+
+<li>Currently studying BCA at Don Bosco College, Yelagiri Hills.</li>
+
+<li>Interested in learning new things because it helps my future.</li>
+
+<li>I want to live independently and build a successful career.</li>
+
+</ul>
+
+</div>
+
+<!-- ACHIEVEMENTS -->
+
+<div class="card">
+
+<h2>🏆 ACHIEVEMENTS</h2>
+
+<ul>
+
+<li>Attended workshops and seminars.</li>
+
+<li>Participated in college events.</li>
+
+<li>Improving technical and communication skills.</li>
+
+</ul>
+
+<div class="badges">
+
+<div class="badge">🎖️ Workshop Hero</div>
+<div class="badge">🔥 Event Explorer</div>
+<div class="badge">💻 Coding Learner</div>
+
+</div>
+
+</div>
+
+<!-- HOBBIES -->
+
+<div class="card">
+
+<h2>🎨 HOBBIES</h2>
+
+<ul>
+
+<li>✍️ Writing Tamil Poetry</li>
+<li>📱 Watching Instagram Reels</li>
+<li>🎵 Listening Music</li>
+
+</ul>
+
+</div>
+
+<!-- CAREER GOAL -->
+
+<div class="card">
+
+<h2>🎯 CAREER GOAL</h2>
+
+<p style="line-height:1.8;">
+
+My goal is to become a successful software developer
+and build a strong independent future using creativity,
+knowledge, and technology.
+
+</p>
+
+</div>
+
+<!-- GAME SECTION -->
+
+<div class="game-box">
+
+<h2>🎮 PLAYER STATUS</h2>
+
+<br>
+
+<div class="coin">🪙</div>
+
+<br>
+
+<p>Level 10 Student Developer</p>
+<p>XP Increasing Everyday 🚀</p>
+
+<div class="level-bar">
+<div class="level-fill"></div>
+</div>
+
+<br>
+
+<h3>🏅 Gamer + Coder Combo Activated</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
